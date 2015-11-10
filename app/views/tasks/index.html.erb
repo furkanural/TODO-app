@@ -1,0 +1,36 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Done</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @tasks.each_with_index do |t,i| %>
+    <tr class=" <%= 'active' if t.done == false %>">
+      <td>
+        <%= i+1 %>
+      </td>
+      <td>
+        <%=t.name %>
+      </td>
+      <td>
+        <%=t.done %>
+      </td>
+      <td>
+        <%= link_to  task_path(t) do %>
+        <button type="button" class="btn btn-link btn-sm">Show</button>
+        <% end %>
+        <%= link_to  edit_task_path(t) do %>
+        <button type="button" class="btn btn-link btn-sm">Edit</button>
+        <% end %>
+        <%= link_to task_path(t), method: :delete do %>
+        <button type="button" class="btn btn-link btn-sm">Delete</button>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,30 @@
+!!!
+%html
+  %head
+    %title TODO
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    .container-narrow
+      .masthead
+        %ul.nav.nav-pills.pull-right
+
+          -if params[:action] == 'routes'
+            %li
+              %a{:href => "/"} Home
+            %li.active
+              = link_to 'Routes', routes_path
+          -else
+            %li.active
+              %a{:href => "/"} Home
+            %li
+              = link_to 'Routes', routes_path
+
+        %h3.muted= link_to "TODO", root_path
+      %hr/
+      = render partial: 'layouts/partials/messages'
+      = yield
+      %hr/
+      .footer
+        %p © Company 2013

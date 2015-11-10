@@ -1,0 +1,17 @@
+<p>
+  <strong>Name:</strong>
+  <%= @task.name %>
+</p>
+
+<p>
+  <strong>Done:</strong>
+  <%= @task.done %>
+</p>
+
+<%= link_to edit_task_path(@task) do %>
+  <button type="button" class="btn btn-default">Edit</button>
+<%  end %>
+
+<%= link_to tasks_path do %>
+  <button type="button" class="btn btn-default">Back</button>
+<%  end %>
