@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :hq do
       root to: 'dashboard#index'
+      get 'tables' => 'dashboard#tables'
       resource :admin_profile, except: [:destroy], path: 'profile'
       resources :dashboard, only: [:index]
   end
